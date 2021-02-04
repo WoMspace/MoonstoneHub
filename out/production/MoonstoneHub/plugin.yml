@@ -1,0 +1,21 @@
+name: MoonstoneHub
+version: 1.2 SNAPSHOT
+author: WoMspace
+main: net.womspace.moonstonehub.MoonstoneHub
+api-version: 1.15
+commands:
+  hub:
+    description: Sends the player to the hub.
+    usage: /hub
+  stop:
+    description: Sends all players to the hub world and stops the current server.
+    usage: /stop
+  msg:
+    description: Overrides the built-in /msg command to make it work with certain plugins.
+    usage: /msg <Player> <Message>
+  whisper:
+    description: Overrides the built-in /msg command to make it work with certain plugins.
+    usage: /msg <Player> <Message>
+  tell:
+    description: Overrides the built-in /msg command to make it work with certain plugins.
+    usage: /msg <Player> <Message>
