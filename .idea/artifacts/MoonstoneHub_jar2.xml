@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MoonstoneHub:jar2">
+    <output-path>$PROJECT_DIR$/../Server/plugins</output-path>
+    <root id="archive" name="MoonstoneHub.jar">
+      <element id="module-output" name="MoonstoneHub" />
+    </root>
+  </artifact>
+</component>

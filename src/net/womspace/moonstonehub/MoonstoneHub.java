@@ -8,7 +8,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.PluginMessageListener;
 import org.bukkit.util.Vector;
 
-@SuppressWarnings({"ConstantConditions", "UnstableApiUsage"})
+@SuppressWarnings("ConstantConditions")
 public class MoonstoneHub extends JavaPlugin implements PluginMessageListener {
 
     protected static FileConfiguration config;

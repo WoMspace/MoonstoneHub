@@ -12,7 +12,7 @@ public class OverwriteMsg implements CommandExecutor {
     {
         try
         {
-            if(MoonstoneHub.config.getBoolean("overwriteMsg"))
+            if(sender.hasPermission("moonstonehub.msg"))
             {
                 String msgCommand = "minecraft:msg";
                 for(String concatString : args)
@@ -20,6 +20,10 @@ public class OverwriteMsg implements CommandExecutor {
                     msgCommand = msgCommand + " " + concatString;
                 }
                 Bukkit.dispatchCommand(sender,msgCommand);
+            }
+            else
+            {
+                sender.sendMessage("You do not have permission to perform this command");
             }
             return true;
         }

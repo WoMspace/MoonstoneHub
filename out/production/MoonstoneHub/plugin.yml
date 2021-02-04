@@ -1,5 +1,5 @@
 name: MoonstoneHub
-version: 1.2 SNAPSHOT
+version: 1.2.1 SNAPSHOT
 author: WoMspace
 main: net.womspace.moonstonehub.MoonstoneHub
 api-version: 1.15
@@ -19,3 +19,18 @@ commands:
   tell:
     description: Overrides the built-in /msg command to make it work with certain plugins.
     usage: /msg <Player> <Message>
+permissions:
+  moonstonehub.*:
+    children:
+      moonstonehub.hub: true
+      moonstonehub.msg: true
+      moonstonehub.stop: true
+  moonstonehub.hub:
+    description: Teleports you to the hubworld from another server.
+    default: true
+  moonstonehub.msg:
+    description: Allows you to privately message another player.
+    default: true
+  moonstonehub.stop:
+    description: Kicks all players to the hubworld and stops the server.
+    default: op

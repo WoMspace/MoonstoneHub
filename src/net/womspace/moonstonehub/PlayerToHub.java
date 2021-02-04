@@ -15,13 +15,17 @@ public class PlayerToHub implements CommandExecutor {
     {
         try
         {
-            if(sender instanceof Player)
+            if(sender instanceof Player && sender.hasPermission("moonstone.hub"))
             {//if a player runs /hub
                 movePlayer((Player)sender);
             }
-            else
+            else if (sender.hasPermission("moonstone.hub"))
             {//if the plugin is moving a player automatically
                 movePlayer(Bukkit.getPlayer(args[0]));
+            }
+            else
+            {
+                sender.sendMessage("You do not have permission to perform this command");
             }
             return true;
         }
