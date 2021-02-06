@@ -34,7 +34,9 @@ public class MoonstoneHub extends JavaPlugin implements PluginMessageListener {
         this.getCommand("msg").setExecutor(new OverwriteMsg());
         this.getCommand("whisper").setExecutor(new OverwriteMsg());
         this.getCommand("tell").setExecutor(new OverwriteMsg());
+
         getServer().getPluginManager().registerEvents(new hubJoinTeleport(), this);
+        getServer().getPluginManager().registerEvents(new PreventMobTerrainDamage(), this);
         //todo: auto server map backup and restart at midnight gmt, kicks players to hub
         //todo: notHere: perhaps a 'banned' role in the server discord which will be given to players who have synced their discord to their mc but have been banned.
         //todo: notHere: legacy requires account syncing to access?
