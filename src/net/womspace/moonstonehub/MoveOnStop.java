@@ -14,7 +14,7 @@ public class MoveOnStop implements CommandExecutor
     {
         try
         {
-            if(MoonstoneHub.config.getBoolean("hubOnStop") && !Bukkit.getServer().getName().equals(MoonstoneHub.config.getString("hubWorld")) && sender.hasPermission("moonstone.stop"))
+            if(MoonstoneHub.config.getBoolean("hubOnStop") && !Bukkit.getServer().getName().equals(MoonstoneHub.config.getString("hubWorld")) && sender.hasPermission("moonstonehub.stop"))
             {
                 //get a list of all players
                 Player[] onlinePlayers = new Player[Bukkit.getOnlinePlayers().toArray().length];
@@ -24,7 +24,7 @@ public class MoveOnStop implements CommandExecutor
                     PlayerToHub.movePlayer(player);
                 }
             }
-            if(sender.hasPermission("moonstone.stop")) {
+            if(sender.hasPermission("moonstonehub.stop")) {
                 //actually stop the server xd
                 ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
                 String stopServerCommand = "minecraft:stop";

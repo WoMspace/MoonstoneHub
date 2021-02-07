@@ -18,7 +18,8 @@ public class PreventMobTerrainDamage implements Listener {
         {
             for(Block block : kablooie.blockList())
             {
-                Bukkit.getLogger().info(block.getType().name());
+                //Bukkit.getLogger().info(block.getType().name());
+
                 //prevent break somehow ://
                 //also don't forget to add endermen, and also update version number
 
