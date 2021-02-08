@@ -4,7 +4,6 @@ import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteStreams;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
-import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.PluginMessageListener;
 import org.bukkit.util.Vector;
@@ -23,6 +22,8 @@ public class MoonstoneHub extends JavaPlugin implements PluginMessageListener {
         config.addDefault("joinHubAtLocation", false);
         config.addDefault("hubJoinLocation", new Vector(0,0,0));
         config.addDefault("overwriteMsg", true);
+        config.addDefault("noCreeperTerrainDamage", true);
+        config.addDefault("preventEndermanMoveBlocks", true);
         config.options().copyDefaults(true);
         saveConfig();
 
