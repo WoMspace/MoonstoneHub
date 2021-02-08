@@ -5,12 +5,14 @@ import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityChangeBlockEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
+import org.bukkit.event.hanging.HangingBreakEvent;
 
 import java.util.logging.Logger;
 
 public class PreventMobTerrainDamage implements Listener {
-    //Logger debug = Bukkit.getLogger();
+    Logger debug = Bukkit.getLogger();
     @EventHandler
     public void EntityExplodeEvent(EntityExplodeEvent kablooie)
     {
@@ -18,27 +20,23 @@ public class PreventMobTerrainDamage implements Listener {
             if (kablooie.getEntity() instanceof Creeper && MoonstoneHub.config.getBoolean("noCreeperTerrainDamage")) {
                 kablooie.blockList().clear();
                 //debug.info("Cancelled Creeper Explosion");
-                return;
             }
             else if(kablooie.getEntity() instanceof WitherSkull && MoonstoneHub.config.getBoolean("noWitherTerrainDamage")) {
                 kablooie.blockList().clear();
                 //debug.info("Cancelled WitherSkull Explosion");
-                return;
             }
             else if(kablooie.getEntity() instanceof Fireball && MoonstoneHub.config.getBoolean("noGhastTerrainDamage")){
                 kablooie.blockList().clear();
                 //debug.info("Cancelled Ghast Fireball Explosion");
-                return;
             }
             else if(kablooie.getEntity() instanceof Wither && MoonstoneHub.config.getBoolean("noWitherTerrainDamage")) {
                 kablooie.blockList().clear();
                 //debug.info("Cancelled Wither Explosion");
-                return;
             }
         }
         catch (Exception e)
         {
-            Bukkit.getLogger().warning(e.getMessage());
+            debug.warning(e.getMessage());
         }
     }
     @EventHandler
@@ -53,13 +51,43 @@ public class PreventMobTerrainDamage implements Listener {
             if(changeBlockEvent.getEntityType().equals(EntityType.RAVAGER) && MoonstoneHub.config.getBoolean("preventRavagerDestruction")) {
                 changeBlockEvent.setCancelled(true);
                 //debug.info("Cancelled Ravager Terrain Damage");
-                return;
             }
 
         }
         catch (Exception e)
         {
-            Bukkit.getLogger().warning(e.getMessage());
+            debug.warning(e.getMessage());
+        }
+    }
+    @EventHandler
+    public void EntityDamageEvent(EntityDamageEvent damageEvent)
+    {
+        try
+        {
+            if(damageEvent.getEntityType().equals(EntityType.ARMOR_STAND) && damageEvent.getCause().equals(EntityDamageEvent.DamageCause.ENTITY_EXPLOSION) && MoonstoneHub.config.getBoolean("noCreeperTerrainDamage"))
+            {
+                damageEvent.setCancelled(true);
+                //debug.info("Cancelled damageEvent");
+            }
+        }
+        catch (Exception e)
+        {
+            debug.warning(e.getMessage());
+        }
+    }
+    @EventHandler
+    public void HangingBreakEvent(HangingBreakEvent breakEvent)
+    {
+        try
+        {
+            if(breakEvent.getCause().equals(HangingBreakEvent.RemoveCause.EXPLOSION) && MoonstoneHub.config.getBoolean("noCreeperTerrainDamage"))
+            {
+                breakEvent.setCancelled(true);
+            }
+        }
+        catch (Exception e)
+        {
+            debug.warning(e.getMessage());
         }
     }
 }
