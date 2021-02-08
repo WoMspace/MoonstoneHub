@@ -23,7 +23,10 @@ public class MoonstoneHub extends JavaPlugin implements PluginMessageListener {
         config.addDefault("hubJoinLocation", new Vector(0,0,0));
         config.addDefault("overwriteMsg", true);
         config.addDefault("noCreeperTerrainDamage", true);
+        config.addDefault("noWitherTerrainDamage", true);
+        config.addDefault("noGhastTerrainDamage", true);
         config.addDefault("preventEndermanMoveBlocks", true);
+        config.addDefault("preventRavagerDestruction", true);
         config.options().copyDefaults(true);
         saveConfig();
 
