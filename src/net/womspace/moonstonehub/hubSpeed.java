@@ -16,10 +16,11 @@ public class hubSpeed implements Listener {
     {
         try
         {
-            playerJoin.getPlayer().sendMessage(playerJoin.getPlayer().getWorld().getName());
+            //playerJoin.getPlayer().sendMessage(playerJoin.getPlayer().getWorld().getName());
             if(MoonstoneHub.config.getBoolean("giveSpeedInHub") && playerJoin.getPlayer().getWorld().getName().equals(MoonstoneHub.config.getString("hubWorld")))
             {
-                playerJoin.getPlayer().addPotionEffect(new PotionEffect(SPEED, 10000, 3, false, false));
+                playerJoin.getPlayer().addPotionEffect(new PotionEffect(SPEED, 36000, 1, false, false));
+                playerJoin.getPlayer().setWalkSpeed(0.3f);
             }
         }
         catch (Exception e)
