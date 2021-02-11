@@ -27,6 +27,8 @@ public class MoonstoneHub extends JavaPlugin implements PluginMessageListener {
         config.addDefault("noGhastTerrainDamage", true);
         config.addDefault("preventEndermanMoveBlocks", true);
         config.addDefault("preventRavagerDestruction", true);
+        config.addDefault("useMapCommand", true);
+        config.addDefault("mapURL", "http://moonstone.womspace.net:8888/");
         config.options().copyDefaults(true);
         saveConfig();
 
@@ -35,6 +37,8 @@ public class MoonstoneHub extends JavaPlugin implements PluginMessageListener {
 
         this.getCommand("hub").setExecutor(new PlayerToHub());
         this.getCommand("stop").setExecutor(new MoveOnStop());
+
+        this.getCommand("map").setExecutor(new mapCommand());
 
         this.getCommand("msg").setExecutor(new OverwriteMsg());
         this.getCommand("whisper").setExecutor(new OverwriteMsg());
