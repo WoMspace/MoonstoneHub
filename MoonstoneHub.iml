@@ -44,5 +44,9 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="spigot-api-1.16.1-R0.1-20200728.080814-126" level="project" />
+    <orderEntry type="library" name="waterfall-370" level="project" />
+    <orderEntry type="library" name="paper-1.16.5-457" level="project" />
+    <orderEntry type="library" name="spigot-1.16.5" level="project" />
   </component>
 </module>
